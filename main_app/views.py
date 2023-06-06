@@ -21,3 +21,36 @@ def sports(request):
     return render(request, 'sports.html', {
         'articles': articles
     })
+
+
+def science(request):
+    url = f'https://newsapi.org/v2/top-headlines?country=us&category=science&apiKey={API_KEY}'
+    response = requests.get(url)
+    data = response.json()
+    articles = data['articles']
+
+    return render(request, 'science.html', {
+        'articles': articles
+    })
+
+
+def entertainment(request):
+    url = f'https://newsapi.org/v2/top-headlines?country=us&category=entertainment&apiKey={API_KEY}'
+    response = requests.get(url)
+    data = response.json()
+    articles = data['articles']
+
+    return render(request, 'entertainment.html', {
+        'articles': articles
+    })
+
+
+def technology(request):
+    url = f'https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey={API_KEY}'
+    response = requests.get(url)
+    data = response.json()
+    articles = data['articles']
+
+    return render(request, 'technology.html', {
+        'articles': articles
+    })
