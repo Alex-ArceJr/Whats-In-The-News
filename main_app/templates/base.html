@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +6,42 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>What's in the News</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
+  <header>
+    <nav class="nav-extended blue accent-1">
+      <div class="nav-wrapper">
+        <a href="{% url 'home' %}" class="brand-logo">Home</a>
 
+      </div>
+      <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+          <li class="tab"><a href="#test1">Sports</a></li>
+          <li class="tab"><a href="#test2">Entertainment</a></li>
+          <li class="tab "><a href="#test3">Science</a></li>
+          <li class="tab"><a href="#test4">Technology</a></li>
+        </ul>
+
+      </div>
+    </nav>
+
+
+  </header>
+
+<main class="container">
+  {% block content %}
+  {% endblock %}
+</main>
+
+
+
+  <footer class="page-footer blue accent-1">
+      <span >
+        All Rights Reserved, &copy; 2023 What's In The News &nbsp;
+      </span>
+  </footer>
 </body>
 </html>
