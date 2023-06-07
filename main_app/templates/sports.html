@@ -5,8 +5,7 @@
 <h1>Sports</h1>
 
 
-{% for idx, article in enumerate(articles) %}
-<p>{{print(idx)}}</p>
+{% for article in articles %}
 <div class="row">
   <div class="col s12 m7">
     <div class="card medium">
@@ -25,7 +24,7 @@
 </div>
 
 
-
+<!-- <p> {{ article.author }} </p> -->
 
 {% endfor %}
 
