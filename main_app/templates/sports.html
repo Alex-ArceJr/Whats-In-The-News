@@ -4,7 +4,30 @@
 
 <h1>Sports</h1>
 
-<p>{{ articles }}</p>
+
+{% for idx, article in enumerate(articles) %}
+<p>{{print(idx)}}</p>
+<div class="row">
+  <div class="col s12 m7">
+    <div class="card medium">
+      <div class="card-image">
+        <img src="{{ article.urlToImage }}" alt="" >
+
+      </div>
+      <div class="card-content">
+        <p> {{ article.title }} </p>
+      </div>
+      <div class="card-action">
+        <a href="{{ article.url }}" target="_blank">Read Article</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endfor %}
 
 
 {% endblock %}

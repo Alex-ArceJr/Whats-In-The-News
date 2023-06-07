@@ -1,3 +1,4 @@
+from .models import Article
 from django.shortcuts import render
 import requests
 API_KEY = '6cb28f21ae384e73a91e188613a694ad'
