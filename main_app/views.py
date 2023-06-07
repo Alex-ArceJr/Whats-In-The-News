@@ -22,14 +22,15 @@ def sports(request):
     articles = data['articles']
 
     for article in articles:
-        Article.objects.create(
-            author=article['author'] or 'author not listed',
-            title=article['title'],
-            description=article['description'] or '',
-            url=article['url'],
-            urlImage=article['urlToImage'] or '',
-            category='sports'
-        )
+        if not Article.objects.filter(url=article['url']).exists():
+            Article.objects.create(
+                author=article['author'] or 'author not listed',
+                title=article['title'],
+                description=article['description'] or '',
+                url=article['url'],
+                urlImage=article['urlToImage'] or '',
+                category='sports'
+            )
 
     sportsArticles = Article.objects.filter(category__icontains='sports')
 
@@ -45,14 +46,15 @@ def science(request):
     articles = data['articles']
 
     for article in articles:
-        Article.objects.create(
-            author=article['author'] or 'author not listed',
-            title=article['title'],
-            description=article['description'] or '',
-            url=article['url'],
-            urlImage=article['urlToImage'] or '',
-            category='science'
-        )
+        if not Article.objects.filter(url=article['url']).exists():
+            Article.objects.create(
+                author=article['author'] or 'author not listed',
+                title=article['title'],
+                description=article['description'] or '',
+                url=article['url'],
+                urlImage=article['urlToImage'] or '',
+                category='science'
+            )
     scienceArticles = Article.objects.filter(category__icontains='science')
 
     return render(request, 'science.html', {
@@ -67,14 +69,15 @@ def entertainment(request):
     articles = data['articles']
 
     for article in articles:
-        Article.objects.create(
-            author=article['author'] or 'author not listed',
-            title=article['title'],
-            description=article['description'] or '',
-            url=article['url'],
-            urlImage=article['urlToImage'] or '',
-            category='entertainment'
-        )
+        if not Article.objects.filter(url=article['url']).exists():
+            Article.objects.create(
+                author=article['author'] or 'author not listed',
+                title=article['title'],
+                description=article['description'] or '',
+                url=article['url'],
+                urlImage=article['urlToImage'] or '',
+                category='entertainment'
+            )
 
     entertainmentArticles = Article.objects.filter(
         category__icontains='entertainment')
@@ -91,14 +94,15 @@ def technology(request):
     articles = data['articles']
 
     for article in articles:
-        Article.objects.create(
-            author=article['author'] or 'author not listed',
-            title=article['title'],
-            description=article['description'] or '',
-            url=article['url'],
-            urlImage=article['urlToImage'] or '',
-            category='technology'
-        )
+        if not Article.objects.filter(url=article['url']).exists():
+            Article.objects.create(
+                author=article['author'] or 'author not listed',
+                title=article['title'],
+                description=article['description'] or '',
+                url=article['url'],
+                urlImage=article['urlToImage'] or '',
+                category='technology'
+            )
 
     technologyArticles = Article.objects.filter(
         category__icontains='technology')
