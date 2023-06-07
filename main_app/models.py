@@ -12,4 +12,5 @@ class Article(models.Model):
     description = models.TextField(max_length=1000)
     url = models.CharField(max_length=500)
     urlImage = models.CharField(max_length=500)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ManyToManyField(User)
+    category = models.CharField(max_length=100)

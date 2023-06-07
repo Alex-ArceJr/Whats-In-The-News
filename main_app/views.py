@@ -21,8 +21,20 @@ def sports(request):
     data = response.json()
     articles = data['articles']
 
+    for article in articles:
+        Article.objects.create(
+            author=article['author'] or 'author not listed',
+            title=article['title'],
+            description=article['description'] or '',
+            url=article['url'],
+            urlImage=article['urlToImage'] or '',
+            category='sports'
+        )
+
+    sportsArticles = Article.objects.filter(category__icontains='sports')
+
     return render(request, 'sports.html', {
-        'articles': articles
+        'articles': sportsArticles
     })
 
 
@@ -32,8 +44,19 @@ def science(request):
     data = response.json()
     articles = data['articles']
 
+    for article in articles:
+        Article.objects.create(
+            author=article['author'] or 'author not listed',
+            title=article['title'],
+            description=article['description'] or '',
+            url=article['url'],
+            urlImage=article['urlToImage'] or '',
+            category='science'
+        )
+    scienceArticles = Article.objects.filter(category__icontains='science')
+
     return render(request, 'science.html', {
-        'articles': articles
+        'articles': scienceArticles
     })
 
 
@@ -43,8 +66,21 @@ def entertainment(request):
     data = response.json()
     articles = data['articles']
 
+    for article in articles:
+        Article.objects.create(
+            author=article['author'] or 'author not listed',
+            title=article['title'],
+            description=article['description'] or '',
+            url=article['url'],
+            urlImage=article['urlToImage'] or '',
+            category='entertainment'
+        )
+
+    entertainmentArticles = Article.objects.filter(
+        category__icontains='entertainment')
+
     return render(request, 'entertainment.html', {
-        'articles': articles
+        'articles': entertainmentArticles
     })
 
 
@@ -54,8 +90,21 @@ def technology(request):
     data = response.json()
     articles = data['articles']
 
+    for article in articles:
+        Article.objects.create(
+            author=article['author'] or 'author not listed',
+            title=article['title'],
+            description=article['description'] or '',
+            url=article['url'],
+            urlImage=article['urlToImage'] or '',
+            category='technology'
+        )
+
+    technologyArticles = Article.objects.filter(
+        category__icontains='technology')
+
     return render(request, 'technology.html', {
-        'articles': articles
+        'articles': technologyArticles
     })
 
 
