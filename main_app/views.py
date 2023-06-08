@@ -130,3 +130,23 @@ def signup(request):
         'form': form,
         'error': error_message
     })
+
+
+def technology_article_detail(request, article_id):
+    technology = Article.objects.get(id=article_id)
+    return render(request, 'article/detail.html', {'technology': technology})
+
+
+def science_article_detail(request, article_id):
+    science = Article.objects.get(id=article_id)
+    return render(request, 'article/science_detail.html', {'science': science})
+
+
+def sports_article_detail(request, article_id):
+    sports = Article.objects.get(id=article_id)
+    return render(request, 'article/sports_detail.html', {'sports': sports})
+
+
+def entertainment_article_detail(request, article_id):
+    entertainment = Article.objects.get(id=article_id)
+    return render(request, 'article/entertainment_detail.html', {'entertainment': entertainment})
