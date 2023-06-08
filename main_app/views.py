@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from .models import Article
 from django.shortcuts import render, redirect
 import requests
@@ -15,6 +16,7 @@ def about(request):
     return render(request, 'about.html')
 
 
+@login_required
 def sports(request):
     url = f'https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey={API_KEY}'
     response = requests.get(url)
@@ -39,6 +41,7 @@ def sports(request):
     })
 
 
+@login_required
 def science(request):
     url = f'https://newsapi.org/v2/top-headlines?country=us&category=science&apiKey={API_KEY}'
     response = requests.get(url)
@@ -62,6 +65,7 @@ def science(request):
     })
 
 
+@login_required
 def entertainment(request):
     url = f'https://newsapi.org/v2/top-headlines?country=us&category=entertainment&apiKey={API_KEY}'
     response = requests.get(url)
@@ -87,6 +91,7 @@ def entertainment(request):
     })
 
 
+@login_required
 def technology(request):
     url = f'https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey={API_KEY}'
     response = requests.get(url)
@@ -132,25 +137,30 @@ def signup(request):
     })
 
 
+@login_required
 def technology_article_detail(request, article_id):
     technology = Article.objects.get(id=article_id)
     return render(request, 'article/detail.html', {'technology': technology})
 
 
+@login_required
 def science_article_detail(request, article_id):
     science = Article.objects.get(id=article_id)
     return render(request, 'article/science_detail.html', {'science': science})
 
 
+@login_required
 def sports_article_detail(request, article_id):
     sports = Article.objects.get(id=article_id)
     return render(request, 'article/sports_detail.html', {'sports': sports})
 
 
+@login_required
 def entertainment_article_detail(request, article_id):
     entertainment = Article.objects.get(id=article_id)
     return render(request, 'article/entertainment_detail.html', {'entertainment': entertainment})
 
 
+@login_required
 def reading_list(request, ):
     return render(request, 'article/reading_list.html')
