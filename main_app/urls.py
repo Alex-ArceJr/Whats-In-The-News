@@ -17,5 +17,5 @@ urlpatterns = [
          views.sports_article_detail, name='sports_detail'),
     path('entertainment/<int:article_id>/',
          views.entertainment_article_detail, name='entertainment_detail'),
-
+    path('readinglist/', views.reading_list, name='reading_list')
 ]

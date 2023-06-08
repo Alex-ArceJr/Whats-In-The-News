@@ -150,3 +150,7 @@ def sports_article_detail(request, article_id):
 def entertainment_article_detail(request, article_id):
     entertainment = Article.objects.get(id=article_id)
     return render(request, 'article/entertainment_detail.html', {'entertainment': entertainment})
+
+
+def reading_list(request, ):
+    return render(request, 'article/reading_list.html')
