@@ -182,6 +182,7 @@ class ReadingListList(ListView):
 class ReadingListCreate(CreateView):
     reading_form = ReadingListForm()
     model = ReadingList
+    template_name = 'main_app/readinglist_form.html'
     fields = ['category']
 
     def form_valid(self, form):
