@@ -4,18 +4,20 @@
 
 <h1>Add a Reading List</h1>
 
+<div class="reading-list-form">
 
-<form method="post">
-  {% csrf_token %}
+    <form action="" method="POST">
 
-<form action="" method="POST">
+      {% csrf_token %}
+      {{ form.as_table }}
+      <input type="submit" value="Submit" class="btn">
+    </form>
+  </div>
 
-  {% csrf_token %}
-  <table>
 
-    {{ form.as_p }}
-  </table>
-  <input type="submit" value="Submit" class="btn">
-</form>
+<script>
+
+
+</script>
 
 {% endblock %}

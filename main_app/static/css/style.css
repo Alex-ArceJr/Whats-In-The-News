@@ -16,3 +16,36 @@ footer.page-footer {
 .left {
   margin-left: 40px;
 }
+
+.reading-list-form select {
+  display: visible;
+
+      text-align: center;
+
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #740001;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+
+
+}
+
+
+.reading-list-form {
+  max-width: 400px;
+  margin: 50px auto 0;
+  padding: 30px;
+  background-color: #f0f0f0;
+  border-radius: 15px;
+}
+
+.reading-list-form label {
+  display: flex;
+  justify-content: center;
+  color: #d3a625;
+  font-size: 1.3vmin;
+}

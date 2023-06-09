@@ -5,4 +5,4 @@ from .models import ReadingList
 class ReadingListForm(ModelForm):
     class Meta:
         model = ReadingList
-        fields = ['category']
+        fields = '__all__'
