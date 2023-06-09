@@ -17,5 +17,20 @@ urlpatterns = [
          views.sports_article_detail, name='sports_detail'),
     path('entertainment/<int:article_id>/',
          views.entertainment_article_detail, name='entertainment_detail'),
-    path('readinglist/', views.reading_list, name='reading_list')
+    path('readinglist/',
+         views.ReadingListList.as_view(), name='reading_list_list'),
+    path('readinglist/<int:pk>/', views.ReadingListDetail.as_view(),
+         name='reading_list_detail'),
+    path('readinglist/create/', views.ReadingListCreate.as_view(),
+         name='reading_list_create'),
+    path('readinglist/<int:pk>/update/',
+         views.ReadingListUpdate.as_view(), name='readinglist_update'),
+    path('readinglist/<int:pk>/delete/',
+         views.ReadingListDelete.as_view(), name='readinglist_delete'),
+
+    # path('readinglist/<int:article_id>/<int:reading_list_id>/',
+    #      views.add_to_reading_list, name='add_to_reading_list')
+    # # path('readinglist/<int:reading_list_id>/',
+    # #      views.reading_list, name='reading_list')
+
 ]

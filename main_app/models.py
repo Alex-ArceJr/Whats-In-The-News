@@ -8,8 +8,25 @@ from django.contrib.auth.models import User
 
 
 class ReadingList(models.Model):
-    category = models.CharField(max_length=100)
+    CATEGORIES = (
+        ('spo', 'Sports'),
+        ('sci', 'Science'),
+        ('tec', 'Technology'),
+        ('ent', 'Entertainment')
+    )
+
+    category = models.CharField(
+        max_length=3,
+        choices=CATEGORIES,
+        default=CATEGORIES[0][0]
+    )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.category
+
+    def get_absolute_url(self):
+        return reverse('reading_list_detail', kwargs={'pk': self.id})
 
 
 class Article(models.Model):
@@ -24,5 +41,5 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
-    def get_absolute_url(self):
-        return reverse('home', kwargs={'article_id': self.id})
+    # def get_absolute_url(self):
+    #     return reverse('home', kwargs={'article_id': self.id})

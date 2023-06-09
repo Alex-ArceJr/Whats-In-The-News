@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Add a Reading List</h1>
+
+
+<form method="post">
+  {% csrf_token %}
+
+<form action="" method="POST">
+
+  {% csrf_token %}
+  <table>
+
+    {{ form.as_table }}
+  </table>
+  <input type="submit" value="Submit" class="btn">
+</form>
+
+{% endblock %}
