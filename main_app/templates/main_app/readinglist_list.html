@@ -4,11 +4,16 @@
 
 <h1>Reading List</h1>
 
-<p>
-
-  {{object.category}}
-</p>
 
 
 
+{% for model in models %}
+<a href="{% url 'reading_list_detail' model.id %}">
+  <div class="card">
+    <div class="card-content">
+      <p>{{ model.category }}</p>
+    </div>
+  </div>
+</a>
+{% endfor %}
 {% endblock %}

@@ -18,7 +18,7 @@ urlpatterns = [
     path('entertainment/<int:article_id>/',
          views.entertainment_article_detail, name='entertainment_detail'),
     path('readinglist/',
-         views.ReadingListList.as_view(), name='reading_list_list'),
+         views.readingListIndex, name='reading_list_index'),
     path('readinglist/<int:pk>/', views.ReadingListDetail.as_view(),
          name='reading_list_detail'),
     path('readinglist/create/', views.ReadingListCreate.as_view(),
