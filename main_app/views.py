@@ -7,6 +7,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .forms import ReadingListForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 API_KEY = '6cb28f21ae384e73a91e188613a694ad'
 # Create your views here.
 
@@ -168,7 +169,7 @@ def entertainment_article_detail(request, article_id):
     return render(request, 'article/entertainment_detail.html', {'entertainment': entertainment, 'reading_form': reading_form})
 
 
-class ReadingListDetail(DetailView):
+class ReadingListDetail(LoginRequiredMixin, DetailView):
     model = ReadingList
 
 
@@ -178,7 +179,7 @@ def readingListIndex(request):
     return render(request, 'main_app/readinglist_list.html', {'models': models})
 
 
-class ReadingListCreate(CreateView):
+class ReadingListCreate(LoginRequiredMixin, CreateView):
     reading_form = ReadingListForm()
     model = ReadingList
     template_name = 'main_app/readinglist_form.html'
@@ -189,11 +190,11 @@ class ReadingListCreate(CreateView):
         return super().form_valid(form)
 
 
-class ReadingListUpdate(UpdateView):
+class ReadingListUpdate(LoginRequiredMixin, UpdateView):
     model = ReadingList
     fields = ['category']
 
 
-class ReadingListDelete(DeleteView):
+class ReadingListDelete(LoginRequiredMixin, DeleteView):
     model = ReadingList
     success_url = '/readinglist/'
