@@ -6,28 +6,38 @@
 
 
 {% for article in articles %}
-<div class="row">
-  <div class="col s12 m7">
-    <div class="card">
-      <div class="card-image">
+<div class="row ">
+  <div class="col ">
+    <div class="card center">
+      <div class="card-image center-align">
         <img src="{{ article.urlImage }}" alt="" >
 
       </div>
-      <div class="card-content">
-        <p> {{ article.title }} </p>
-      </div>
-      <div class="card-action">
-        <a href="{{ article.url }}" target="_blank">Read Article</a>
-        <a href="{% url 'sports_detail' article.id %}">Show More</a>
+      <div class="s4" >
+
+        <div class="card-content">
+          <p> {{ article.title }} </p>
+        </div>
+        <div class="card-action">
+          <a href="{{ article.url }}" target="_blank">Read Article</a>
+          <a href="{% url 'sports_detail' article.id %}">Show More</a>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 
-<!-- <p> {{ article.author }} </p> -->
 
 {% endfor %}
 
 
 {% endblock %}
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.carousel');
+    var instances = M.Carousel.init(elems, options);
+  })
+</script>

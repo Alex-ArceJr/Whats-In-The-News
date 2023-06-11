@@ -5,4 +5,26 @@
 
 <h1>Home</h1>
 
+
+<div class="carousel">
+  <a class="carousel-item" href="https://www.cnn.com/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/CNN_International_logo.svg/1200px-CNN_International_logo.svg.png"></a>
+  <a class="carousel-item" href="https://www.espn.com/"><img src="https://espnpressroom.com/us/files/2021/06/0-ESPN-Logo-for-PressRoom-780x470.jpg"></a>
+  <a class="carousel-item" href="https://www.tmz.com/"><img src="https://ca-times.brightspotcdn.com/dims4/default/7f5d88e/2147483647/strip/true/crop/1920x1080+0+0/resize/1200x675!/quality/80/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F2b%2Fca%2F6b8310b049bdb737e62cd70f16b1%2Ftmz.jpg"></a>
+  <a class="carousel-item" href="https://www.latimes.com/"><img src="https://static.wikia.nocookie.net/logopedia/images/9/97/LA_Times_box.jpeg/revision/latest?cb=20200209202626"></a>
+  <a class="carousel-item" href="https://abcnews.go.com/"><img src="https://yt3.googleusercontent.com/OOT0eq8LoW8V3PMURGYuk0kRSgRGP7EsuGZoODhHBcg1jCB1qkuIAxS-XGnjKX9Q6rf-WKTvkQ=s900-c-k-c0x00ffffff-no-rj"></a>
+</div>
+
+
+
+
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', function () {
+    let elems = document.querySelectorAll('.carousel');
+    let instances = M.Carousel.init(elems, options);
+  });
+
+</script>
+
 {% endblock %}

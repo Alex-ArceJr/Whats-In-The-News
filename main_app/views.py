@@ -162,6 +162,20 @@ def sports_article_detail(request, article_id):
     return render(request, 'article/sports_detail.html', {'sports': sports, 'reading_form': reading_form})
 
 
+def add_article(request, article_id, readinglist_id):
+    form = ReadingListForm(request.POST)
+    article = Article.objects.all()
+    readinglistId = ReadingList.objects.get(id=readinglist_id)
+    idList = article.values_list('article_id', flat=True)
+    avaiableArticles = Article.objects.exclude(article_id__in=idList)
+    if form.is_valid():
+        new_article = form.save(commit=False)
+        new_article.article_id = article_id
+
+        new_article.save()
+    return redirect('about', article_id=article_id)
+
+
 @login_required
 def entertainment_article_detail(request, article_id):
     entertainment = Article.objects.get(id=article_id)
@@ -171,6 +185,14 @@ def entertainment_article_detail(request, article_id):
 
 class ReadingListDetail(LoginRequiredMixin, DetailView):
     model = ReadingList
+
+
+# def reading_list_detail(request, pk):
+#     article = Article.objects.all()
+#     readinglistId = ReadingList.objects.get(id=pk)
+#     idList = article.values_list('id', flat=True)
+#     avaiableArticles = Article.objects.exclude(id__in=idList)
+#     return render(request, 'main_app/readinglist_detail.html', {'readinglist': readinglistId, 'article': article, 'availableArticles': avaiableArticles})
 
 
 def readingListIndex(request):

@@ -2,6 +2,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background-color: #36454f;
 }
 
 main {
@@ -48,4 +49,9 @@ footer.page-footer {
   justify-content: center;
   color: white;
   font-size: 1.9vmin;
+}
+
+
+.carousel {
+  display: visible;
 }

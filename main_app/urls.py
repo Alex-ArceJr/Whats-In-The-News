@@ -21,12 +21,17 @@ urlpatterns = [
          views.readingListIndex, name='reading_list_index'),
     path('readinglist/<int:pk>/', views.ReadingListDetail.as_view(),
          name='reading_list_detail'),
+    # path('readinglist/<int:pk>/', views.reading_list_detail,
+    #      name='reading_list_detail'),
+
     path('readinglist/create/', views.ReadingListCreate.as_view(),
          name='reading_list_create'),
     path('readinglist/<int:pk>/update/',
          views.ReadingListUpdate.as_view(), name='readinglist_update'),
     path('readinglist/<int:pk>/delete/',
          views.ReadingListDelete.as_view(), name='readinglist_delete'),
+    path('sports/<int:article_id>/add_article/',
+         views.add_article, name='add_article')
 
     # path('readinglist/<int:article_id>/<int:reading_list_id>/',
     #      views.add_to_reading_list, name='add_to_reading_list')
