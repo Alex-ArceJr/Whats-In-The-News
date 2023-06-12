@@ -158,8 +158,13 @@ def science_article_detail(request, article_id):
 @login_required
 def sports_article_detail(request, article_id):
     sports = Article.objects.get(id=article_id)
+    id_list = sports.readingList.all().values_list('id')
+    print(id_list)
+    readinglist_article_doesnt_have = ReadingList.objects.exclude(
+        id__in=id_list)
+    print(readinglist_article_doesnt_have)
     reading_form = ReadingListForm()
-    return render(request, 'article/sports_detail.html', {'sports': sports, 'reading_form': reading_form})
+    return render(request, 'article/sports_detail.html', {'sports': sports, 'reading_form': reading_form, 'readinglist': id_list})
 
 
 def add_article(request, article_id, readinglist_id):
@@ -187,6 +192,9 @@ class ReadingListDetail(LoginRequiredMixin, DetailView):
     model = ReadingList
 
 
+# def readinglist_detail(request, readinglist_id):
+#     readinglist = ReadingList.objects.get(id=readinglist_id)
+
 # def reading_list_detail(request, pk):
 #     article = Article.objects.all()
 #     readinglistId = ReadingList.objects.get(id=pk)
@@ -197,7 +205,7 @@ class ReadingListDetail(LoginRequiredMixin, DetailView):
 
 def readingListIndex(request):
 
-    models = ReadingList.objects.all()
+    models = ReadingList.objects.filter(user=request.user)
     return render(request, 'main_app/readinglist_list.html', {'models': models})
 
 

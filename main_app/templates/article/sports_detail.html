@@ -60,12 +60,22 @@
 </div>
 <div class="col s6">
   <!-- New Markup Below -->
-  <form  action="" method="POST">
-    {% csrf_token %}
-    <!-- Render the inputs -->
-    {{ reading_form.as_p }}
-    <input type="submit" class="btn" value="Add Article">
-  </form>
+<form method="post">
+  {% csrf_token %}
+  {{ reading_form.as_p }}
+  <button type="submit">Add to Reading List</button>
+</form>
+
+<!-- Display the existing reading list -->
+<h2>Reading List</h2>
+<ul>
+  {% for id in readinglist %}
+  <li>{{ id }}</li>
+  {% endfor %}
+</ul>
+
+
+
 </div>
 
 <script>

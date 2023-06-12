@@ -30,7 +30,7 @@ urlpatterns = [
          views.ReadingListUpdate.as_view(), name='readinglist_update'),
     path('readinglist/<int:pk>/delete/',
          views.ReadingListDelete.as_view(), name='readinglist_delete'),
-    path('sports/<int:article_id>/add_article/',
+    path('sports/<int:article_id>/add_article/<int:readinglist_id>/',
          views.add_article, name='add_article')
 
     # path('readinglist/<int:article_id>/<int:reading_list_id>/',
