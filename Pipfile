@@ -5,9 +5,9 @@ name = "pypi"
 
 [packages]
 django = "*"
-psycopg2-binary = "*"
 django-heroku = "*"
 gunicorn = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
